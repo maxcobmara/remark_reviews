@@ -19,7 +19,17 @@
 
     What is the value of '$result' (PHP, 3) and result (JS, 12)?
 
-2.  Describe (in pseudo-code) a short algorithm which prints all primenumbers from 1 until 10.000
+2.  Describe (in pseudo-code) a short algorithm which prints all primenumbers from 1 until 10,000
+
+    numbers = [*1..10000]
+    numbers for each do
+      divider = [*2..(number/2)
+      divider for each do 
+        if number/divider == 0
+      number is prime
+    end
+
+
 
 3.  Describe (in pseudo-code) a recursive method that is able to print the n-th number in the fibonacci series.
     Fibonacci: 1 1 2 3 5 8 13 21 34 55 89 etc
