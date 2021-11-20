@@ -12,4 +12,7 @@ hr
     p
       = movie.description
       br
+      | Shot on location at &nbsp;
+      = movie.film_locations.map { |l| l.studio.name + " Studios," + l.studio.country }.join(' and ').html_safe
+      br
       | Released #{movie.year}, Directed by #{movie.director.name}
