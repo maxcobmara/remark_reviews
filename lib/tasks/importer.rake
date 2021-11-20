@@ -2,6 +2,7 @@
 require 'csv'
 
 #import data from provided CSVs
+#should run in sequence, run > bundle exec rake:import:all
 
 namespace :import do
 
