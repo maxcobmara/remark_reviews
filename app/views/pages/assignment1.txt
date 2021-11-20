@@ -24,7 +24,7 @@
     numbers = [*1..10000]
     numbers for each do
       divider = [*2..(number/2)
-      divider for each do 
+      divider for each do
         if number/divider == 0
       number is prime
     end
