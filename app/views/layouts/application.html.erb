@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <% unless current_page?(root_url) %>
+      <%= link_to "<- Home", root_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

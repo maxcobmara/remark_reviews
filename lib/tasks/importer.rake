@@ -12,7 +12,18 @@ namespace :import do
       Director.find_or_create_by(name: row["Director"])
       print '.'
     end
-
   end
+
+  desc "Import Actors"
+  task actors: :environment do
+    print 'importing actors'
+    CSV.read("#{Rails.root}/storage/movies.csv", headers: true).each do | row |
+      Actor.find_or_create_by(name: row["Actor"])
+      print '.'
+    end
+  end
+
+  desc "Import All"
+  task all: [:directors, :actors]
 
 end
