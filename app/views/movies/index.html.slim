@@ -17,7 +17,7 @@ table
         td = movie.title
         td = movie.description
         td = movie.year
-        td = movie.director
+        td = movie.director.name
         td = link_to 'Show', movie
         td = link_to 'Edit', edit_movie_path(movie)
         td = link_to 'Destroy', movie, data: { confirm: 'Are you sure?' }, method: :delete

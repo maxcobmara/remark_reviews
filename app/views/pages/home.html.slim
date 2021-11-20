@@ -3,3 +3,13 @@ ul
   li= link_to "Directors", directors_path
   li= link_to "Actors", actors_path
   li= link_to "Studios", studios_path
+  li= link_to "Movies", movies_path
+
+hr
+
+- @movies.each do | movie |
+    h2= movie.title
+    p
+      = movie.description
+      br
+      | Released #{movie.year}, Directed by #{movie.director.name}
