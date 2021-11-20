@@ -12,6 +12,9 @@ hr
     p
       = movie.description
       br
+      | Starring &nbsp;
+      = movie.movie_actors.map { |l| l.actor.name}.join(', ').html_safe
+      br
       | Shot on location at &nbsp;
       = movie.film_locations.map { |l| l.studio.name + " Studios," + l.studio.country }.join(' and ').html_safe
       br

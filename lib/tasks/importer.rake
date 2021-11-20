@@ -57,7 +57,19 @@ namespace :import do
     end
   end
 
+  desc "Import Stars"
+  task movie_actors: :environment do
+    print 'importing movie stars'
+    CSV.read("#{Rails.root}/storage/movies.csv", headers: true).each do | row |
+      MovieActor.where(
+        movie_id: Movie.find_by_title(row["Movie"]).id,
+        actor_id: Actor.find_by_name(row["Actor"]).id
+      ).first_or_create
+      print '.'
+    end
+  end
+
   desc "Import All"
-  task all: [:directors, :actors, :studios, :movies, :film_locations]
+  task all: [:directors, :actors, :studios, :movies, :film_locations, :movie_actors]
 
 end
