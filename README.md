@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ReMark Assignments
 
-Things you may want to cover:
+Assignment 1 results found in app/pages/assignment1.txt
+Might make fancy in assignment_one.html.slim
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Assignment 2 is this app
