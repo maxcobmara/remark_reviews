@@ -1,0 +1,10 @@
+rails generate scaffold Movie title:string description:string year:string, director:references
+rails generate scaffold Director name:string
+rails generate scaffold Actors name:string
+rails generate scaffold Studio name:string country:string
+
+rails generate model FilmLocation movie:references studio:references
+rails generate model MovieActor movie:references actor:references
+
+rails generate scaffold Review movie:references reviewer:references stars:integer review:string
+rails generate scaffold Reviewer username:string

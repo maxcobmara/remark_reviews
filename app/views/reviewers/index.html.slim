@@ -1,0 +1,21 @@
+h1 Listing reviewers
+
+table
+  thead
+    tr
+      th Username
+      th
+      th
+      th
+
+  tbody
+    - @reviewers.each do |reviewer|
+      tr
+        td = reviewer.username
+        td = link_to 'Show', reviewer
+        td = link_to 'Edit', edit_reviewer_path(reviewer)
+        td = link_to 'Destroy', reviewer, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Reviewer', new_reviewer_path

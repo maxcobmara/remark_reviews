@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @director.name
+
+=> link_to 'Edit', edit_director_path(@director)
+'|
+=< link_to 'Back', directors_path

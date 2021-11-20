@@ -1,0 +1,23 @@
+h1 Listing studios
+
+table
+  thead
+    tr
+      th Name
+      th Country
+      th
+      th
+      th
+
+  tbody
+    - @studios.each do |studio|
+      tr
+        td = studio.name
+        td = studio.country
+        td = link_to 'Show', studio
+        td = link_to 'Edit', edit_studio_path(studio)
+        td = link_to 'Destroy', studio, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Studio', new_studio_path

@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Username:
+  = @reviewer.username
+
+=> link_to 'Edit', edit_reviewer_path(@reviewer)
+'|
+=< link_to 'Back', reviewers_path
