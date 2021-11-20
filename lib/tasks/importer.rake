@@ -69,7 +69,31 @@ namespace :import do
     end
   end
 
+  desc "Import Reviewers"
+  task reviewers: :environment do
+    print 'importing reviewers'
+    CSV.read("#{Rails.root}/storage/reviews.csv", headers: true).each do | row |
+      Reviewer.find_or_create_by(username: row["User"])
+      print '.'
+    end
+  end
+
+  desc "Import reviews"
+  task reviews: :environment do
+    print 'importing reviews'
+    CSV.read("#{Rails.root}/storage/reviews.csv", headers: true).each do | row |
+      Review.where(
+        movie_id: Movie.find_by_title(row["Movie"]).id,
+        reviewer: Reviewer.find_by_username(row["User"]).id,
+        stars:    row["Stars"].to_i,
+        review:   row["Review"]
+      ).first_or_create
+      print '.'
+    end
+  end
+
+
   desc "Import All"
-  task all: [:directors, :actors, :studios, :movies, :film_locations, :movie_actors]
+  task all: [:directors, :actors, :studios, :movies, :film_locations, :movie_actors, :reviewers, :reviews]
 
 end

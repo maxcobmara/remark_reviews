@@ -4,18 +4,34 @@ ul
   li= link_to "Actors", actors_path
   li= link_to "Studios", studios_path
   li= link_to "Movies", movies_path
+  li= link_to "Reviewers", reviewers_path
 
+hr
+= form_tag root_path, :method => 'get' do
+  = text_field_tag :search, params[:search], id: "actor_search", placeholder: "Find Actor"
+  = submit_tag "Search", :name => nil
+= @actors.map { |a| link_to a.name, actor_path(a)}.join(', ').html_safe unless @actors.blank?
 hr
 
 - @movies.each do | movie |
     h2= movie.title
+    h3= print_stars(movie.reviews.average(:stars).to_i)
     p
       = movie.description
       br
       | Starring &nbsp;
-      = movie.movie_actors.map { |l| l.actor.name}.join(', ').html_safe
+      = movie.movie_actors.map { |l| link_to l.actor.name, actor_path(l.actor)}.join(', ').html_safe
       br
       | Shot on location at &nbsp;
       = movie.film_locations.map { |l| l.studio.name + " Studios," + l.studio.country }.join(' and ').html_safe
       br
       | Released #{movie.year}, Directed by #{movie.director.name}
+      br <br>
+      | User Reviews :
+      table
+        - movie.reviews.each do | review |
+          tr
+            td= print_stars(review.stars)
+            td= review.reviewer.username
+            td= review.review
+      br <br> <br>
